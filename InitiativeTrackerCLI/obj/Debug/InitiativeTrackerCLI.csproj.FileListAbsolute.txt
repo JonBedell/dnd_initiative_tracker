@@ -1,0 +1,10 @@
+C:\Workspace\int_prototype\InitiativeTrackerPrototype\InitiativeTrackerCLI\obj\Debug\InitiativeTrackerCLI.csproj.CoreCompileInputs.cache
+C:\Workspace\int_prototype\InitiativeTrackerPrototype\InitiativeTrackerCLI\bin\Debug\ConsoleApp1.exe.config
+C:\Workspace\int_prototype\InitiativeTrackerPrototype\InitiativeTrackerCLI\bin\Debug\ConsoleApp1.exe
+C:\Workspace\int_prototype\InitiativeTrackerPrototype\InitiativeTrackerCLI\bin\Debug\ConsoleApp1.pdb
+C:\Workspace\int_prototype\InitiativeTrackerPrototype\InitiativeTrackerCLI\bin\Debug\ClassLibrary1.dll
+C:\Workspace\int_prototype\InitiativeTrackerPrototype\InitiativeTrackerCLI\bin\Debug\ClassLibrary1.pdb
+C:\Workspace\int_prototype\InitiativeTrackerPrototype\InitiativeTrackerCLI\obj\Debug\InitiativeTrackerCLI.csproj.CopyComplete
+C:\Workspace\int_prototype\InitiativeTrackerPrototype\InitiativeTrackerCLI\obj\Debug\ConsoleApp1.exe
+C:\Workspace\int_prototype\InitiativeTrackerPrototype\InitiativeTrackerCLI\obj\Debug\ConsoleApp1.pdb
+C:\Workspace\int_prototype\InitiativeTrackerPrototype\InitiativeTrackerCLI\obj\Debug\InitiativeTrackerCLI.csprojAssemblyReference.cache

@@ -1,0 +1,12 @@
+C:\Workspace\int_prototype\InitiativeTrackerPrototype\ClassLibrary1\bin\Debug\ClassLibrary1.dll
+C:\Workspace\int_prototype\InitiativeTrackerPrototype\ClassLibrary1\bin\Debug\ClassLibrary1.pdb
+C:\Workspace\int_prototype\InitiativeTrackerPrototype\ClassLibrary1\obj\Debug\Initiativetracker.csprojAssemblyReference.cache
+C:\Workspace\int_prototype\InitiativeTrackerPrototype\ClassLibrary1\obj\Debug\Initiativetracker.csproj.CoreCompileInputs.cache
+C:\Workspace\int_prototype\InitiativeTrackerPrototype\ClassLibrary1\obj\Debug\ClassLibrary1.dll
+C:\Workspace\int_prototype\InitiativeTrackerPrototype\ClassLibrary1\obj\Debug\ClassLibrary1.pdb
+C:\Workspace\int_prototype\InitiativeTrackerPrototype\InitiativeTracker\obj\Debug\InitiativeTracker.csprojAssemblyReference.cache
+C:\Workspace\int_prototype\InitiativeTrackerPrototype\InitiativeTracker\obj\Debug\InitiativeTracker.csproj.CoreCompileInputs.cache
+C:\Workspace\int_prototype\InitiativeTrackerPrototype\InitiativeTracker\obj\Debug\ClassLibrary1.dll
+C:\Workspace\int_prototype\InitiativeTrackerPrototype\InitiativeTracker\obj\Debug\ClassLibrary1.pdb
+C:\Workspace\int_prototype\InitiativeTrackerPrototype\InitiativeTracker\bin\Debug\ClassLibrary1.dll
+C:\Workspace\int_prototype\InitiativeTrackerPrototype\InitiativeTracker\bin\Debug\ClassLibrary1.pdb
