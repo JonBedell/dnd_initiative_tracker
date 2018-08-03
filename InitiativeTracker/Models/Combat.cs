@@ -9,10 +9,11 @@ namespace InitiativeTracker.Models
 {
     public class Combat
     {
-        List<Character> TurnOrder { get; set; }
+        public List<Character> TurnOrder { get; set; }
 
         public Combat(List<Character> characters)
         {
+            TurnOrder = new List<Character>();
             TurnOrder.AddRange(characters);
 
             TurnOrder.Sort(delegate (Character c1, Character c2)

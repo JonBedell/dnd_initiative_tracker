@@ -14,6 +14,8 @@ namespace InitiativeTrackerPrototype.Models
         public int InitiativeBonus { get; protected set; }
         public int InitiativeRoll { get; set; }
         public int ArmorClass { get; protected set; }
+        public string TypeClass { get; set; }
+        public int Level { get; set; }
 
         //Derived Properties
         public int InitiativeTotal

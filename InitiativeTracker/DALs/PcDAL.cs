@@ -57,7 +57,7 @@ namespace InitiativeTracker.DALs
 
                     hero.PlayerID = Convert.ToInt32(reader["player_id"]);
                     hero.PcId = Convert.ToInt32(reader["pc_id"]);
-                    hero.Class = Convert.ToString(reader["class"]);
+                    hero.TypeClass = Convert.ToString(reader["class"]);
                     hero.Level = Convert.ToInt32(reader["level"]);
 
                     result.Add(hero);
@@ -76,7 +76,7 @@ namespace InitiativeTracker.DALs
                 conn.Open();
 
                 //Create sql statement
-                string sqlPlayer = "SELECT  name, class, level, initiative_bonus, AC, description" +
+                string sqlPlayer = "SELECT  name, class, level, initiative_bonus, AC, description, race, " +
                                        "FROM pc " +
                                        $"WHERE pc_id = @pc_id ";
 
@@ -93,13 +93,14 @@ namespace InitiativeTracker.DALs
                     PlayerCharacter hero = new PlayerCharacter();
 
                     hero.Name = Convert.ToString(reader["name"]);
-                    hero.InitiativeBonus = Convert.ToInt32(reader["player_id"]);
-                    hero.ArmorClass = Convert.ToInt32(reader["player_id"]);
-                    hero.Description = Convert.ToString(reader["name"]);
+                    hero.InitiativeBonus = Convert.ToInt32(reader["initiative_bonus"]);
+                    hero.ArmorClass = Convert.ToInt32(reader["AC"]);
+                    hero.Description = Convert.ToString(reader["description"]);
 
                     hero.PlayerID = Convert.ToInt32(reader["player_id"]);
-                    hero.Class = Convert.ToString(reader["class"]);
+                    hero.TypeClass = Convert.ToString(reader["class"]);
                     hero.Level = Convert.ToInt32(reader["level"]);
+                    hero.Race = Convert.ToString(reader["race"]);
 
                     result = hero;
                 }
@@ -107,8 +108,32 @@ namespace InitiativeTracker.DALs
             return result;
         }
 
-        public void 
+        public void AddPC(int playerID, string name, string typeClass, int level, int initiativeBonus, int AC, string description)
+        {
 
+            //Connect to Database
+            using (SqlConnection conn = new SqlConnection(_connectionString))
+            {
+                conn.Open();
+
+                //Create sql statement
+                string sqlReservation = "INSERT INTO pcs (name) " +
+                                        $"VALUES(@name)";
+
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = sqlReservation;
+                cmd.Connection = conn;
+                cmd.Parameters.AddWithValue("@name", name);
+
+                //Send command to database
+                int rowsAffected = cmd.ExecuteNonQuery();
+
+                if (rowsAffected == 0)
+                {
+                    throw new Exception("DATABASE ERROR: Player Could not be added.");
+                }
+            }
+        }
 
 
     }

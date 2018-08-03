@@ -20,6 +20,7 @@ CREATE TABLE pc (
   level integer NOT NULL,				-- Character Level
   initiative_bonus integer NOT NULL,	-- Initiative Bonus
   AC integer NOT NULL,					-- Armor Class
+  race varchar(20) NOT NULL,			-- Race 
   description varchar(500) NOT NULL,	-- Character Description
   CONSTRAINT pk_pc_pc_id PRIMARY KEY (pc_id)
 );
@@ -30,7 +31,8 @@ CREATE TABLE npc (
   type varchar(80) NOT NULL,		   -- Name of the npc
   initiative_bonus integer NOT NULL,   -- Initiative Bonus
   AC integer NOT NULL,				   -- Armor Class
-  CR decimal NOT NULL,					-- Challenge Rating
+  CR decimal NOT NULL,				   -- Challenge Rating
+  race varchar(20) NOT NULL,		   -- Race 
   description varchar(500) NOT NULL,   -- Character Description
   CONSTRAINT pk_npc_npc_id PRIMARY KEY (npc_id)
 );
@@ -49,16 +51,16 @@ INSERT INTO player (name)
 VALUES ('Jon');
 
 -- PC
-INSERT INTO pc (name, player_id, class, level, initiative_bonus, AC, description)
-VALUES ('Mirko Youngspear', 1, 'paladin', 7, 2, 16, 'A Dope ass paladin');
+INSERT INTO pc (name, player_id, class, level, initiative_bonus, AC, race, description)
+VALUES ('Mirko Youngspear', 1, 'paladin', 7, 2, 16, 'human', 'A Dope ass paladin');
 
 -- NPC
-INSERT INTO npc( type, initiative_bonus, AC, CR, description)
-VALUES ('Goblin (unshielded)', 2, 13, 0.125, 'You know... goblins.');
-INSERT INTO npc( type, initiative_bonus, AC, CR, description)
-VALUES ('Goblin (shielded)', 2, 15, 0.125, 'You know... goblins.');
-INSERT INTO npc( type, initiative_bonus, AC, CR, description)
-VALUES ('Bandit', 1, 12, 0.125, 'Bandits rove in gangs and are sometimes led by thugs, veterans, or spellcasters. Not all bandits are evil. Oppression, drought, disease, or famine can often drive otherwise honest folk to a life of banditry.');
+INSERT INTO npc( type, initiative_bonus, AC, CR, race, description)
+VALUES ('Goblin (unshielded)', 2, 13, 0.125, 'goblin', 'You know... goblins.');
+INSERT INTO npc( type, initiative_bonus, AC, CR, race, description)
+VALUES ('Goblin (shielded)', 2, 15, 0.125, 'goblin', 'You know... goblins.');
+INSERT INTO npc( type, initiative_bonus, AC, CR, race, description)
+VALUES ('Bandit', 1, 12, 0.125, 'human', 'Bandits rove in gangs and are sometimes led by thugs, veterans, or spellcasters. Not all bandits are evil. Oppression, drought, disease, or famine can often drive otherwise honest folk to a life of banditry.');
 
 ALTER TABLE pc ADD FOREIGN KEY (player_id) REFERENCES player(player_id);
 

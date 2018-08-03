@@ -8,3 +8,13 @@ C:\Workspace\int_prototype\InitiativeTrackerPrototype\InitiativeTrackerCLI\obj\D
 C:\Workspace\int_prototype\InitiativeTrackerPrototype\InitiativeTrackerCLI\obj\Debug\ConsoleApp1.exe
 C:\Workspace\int_prototype\InitiativeTrackerPrototype\InitiativeTrackerCLI\obj\Debug\ConsoleApp1.pdb
 C:\Workspace\int_prototype\InitiativeTrackerPrototype\InitiativeTrackerCLI\obj\Debug\InitiativeTrackerCLI.csprojAssemblyReference.cache
+C:\Users\Jonathan Bedell\Documents\GitHub\dnd_initiative_tracker\InitiativeTrackerCLI\bin\Debug\ConsoleApp1.exe.config
+C:\Users\Jonathan Bedell\Documents\GitHub\dnd_initiative_tracker\InitiativeTrackerCLI\bin\Debug\ConsoleApp1.exe
+C:\Users\Jonathan Bedell\Documents\GitHub\dnd_initiative_tracker\InitiativeTrackerCLI\bin\Debug\ConsoleApp1.pdb
+C:\Users\Jonathan Bedell\Documents\GitHub\dnd_initiative_tracker\InitiativeTrackerCLI\bin\Debug\ClassLibrary1.dll
+C:\Users\Jonathan Bedell\Documents\GitHub\dnd_initiative_tracker\InitiativeTrackerCLI\bin\Debug\ClassLibrary1.pdb
+C:\Users\Jonathan Bedell\Documents\GitHub\dnd_initiative_tracker\InitiativeTrackerCLI\obj\Debug\InitiativeTrackerCLI.csprojAssemblyReference.cache
+C:\Users\Jonathan Bedell\Documents\GitHub\dnd_initiative_tracker\InitiativeTrackerCLI\obj\Debug\InitiativeTrackerCLI.csproj.CoreCompileInputs.cache
+C:\Users\Jonathan Bedell\Documents\GitHub\dnd_initiative_tracker\InitiativeTrackerCLI\obj\Debug\InitiativeTrackerCLI.csproj.CopyComplete
+C:\Users\Jonathan Bedell\Documents\GitHub\dnd_initiative_tracker\InitiativeTrackerCLI\obj\Debug\ConsoleApp1.exe
+C:\Users\Jonathan Bedell\Documents\GitHub\dnd_initiative_tracker\InitiativeTrackerCLI\obj\Debug\ConsoleApp1.pdb

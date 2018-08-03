@@ -3,7 +3,7 @@
 //using System.Linq;
 //using System.Text;
 //using System.Threading.Tasks;
-//using InitiativeTracker.Models;
+//using InitiativeTrackerPrototype.Models;
 
 //namespace InitiativeTrackerPrototype
 //{
@@ -239,7 +239,7 @@
 //                    while (!rollIsInt);
 //                    character.InitiativeRoll = roll;
 //                }
-//                foreach (Character character in nonPlayerCharacterList) 
+//                foreach (Character character in nonPlayerCharacterList)
 //                {
 //                    int roll = 0;
 //                    bool rollIsInt = false;

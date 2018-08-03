@@ -13,6 +13,9 @@ namespace InitiativeTracker.Models
         public int InitiativeRoll { get; set; }
         public int ArmorClass { get; set; }
         public string Description { get; set; }
+        public string TypeClass { get; set; }
+        public double Level { get; set; }
+        public string Race { get; set; }
 
         //Derived Properties
         public int InitiativeTotal

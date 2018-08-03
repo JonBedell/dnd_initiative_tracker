@@ -10,3 +10,9 @@ C:\Workspace\int_prototype\InitiativeTrackerPrototype\InitiativeTracker\obj\Debu
 C:\Workspace\int_prototype\InitiativeTrackerPrototype\InitiativeTracker\obj\Debug\ClassLibrary1.pdb
 C:\Workspace\int_prototype\InitiativeTrackerPrototype\InitiativeTracker\bin\Debug\ClassLibrary1.dll
 C:\Workspace\int_prototype\InitiativeTrackerPrototype\InitiativeTracker\bin\Debug\ClassLibrary1.pdb
+C:\Users\Jonathan Bedell\Documents\GitHub\dnd_initiative_tracker\InitiativeTracker\obj\Debug\InitiativeTracker.csprojAssemblyReference.cache
+C:\Users\Jonathan Bedell\Documents\GitHub\dnd_initiative_tracker\InitiativeTracker\obj\Debug\InitiativeTracker.csproj.CoreCompileInputs.cache
+C:\Users\Jonathan Bedell\Documents\GitHub\dnd_initiative_tracker\InitiativeTracker\obj\Debug\ClassLibrary1.dll
+C:\Users\Jonathan Bedell\Documents\GitHub\dnd_initiative_tracker\InitiativeTracker\obj\Debug\ClassLibrary1.pdb
+C:\Users\Jonathan Bedell\Documents\GitHub\dnd_initiative_tracker\InitiativeTracker\bin\Debug\ClassLibrary1.dll
+C:\Users\Jonathan Bedell\Documents\GitHub\dnd_initiative_tracker\InitiativeTracker\bin\Debug\ClassLibrary1.pdb

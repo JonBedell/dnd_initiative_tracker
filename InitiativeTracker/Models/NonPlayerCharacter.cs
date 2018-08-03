@@ -9,8 +9,6 @@ namespace InitiativeTracker.Models
     public class NonPlayerCharacter: Character
     {
         //Properties 
-        public double CR { get; set; }
-        public string Type { get; set; }
 
     }
 }

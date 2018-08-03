@@ -180,6 +180,101 @@ namespace InitiativeTrackerCLI
         }
 
         /// <summary>
+        /// Prompt user for an interger within a range.  Determine whether you want the input to be a ReadKey or ReadLine.
+        /// </summary>
+        /// <param name="message">Prompt Message for user</param>
+        /// <param name="minValue">Smallest accepted value for user input</param>
+        /// <param name="maxValue">Largest accepted value for user input</param>
+        /// <param name="isReadKey">True for a Console.Readkey (i.e. values are les than 10) False for Console.Readline</param>
+        /// <returns>Returns a string that is either the int value as a string or the acceptable string/char</returns>
+        public static int GetIntInRange(string message, int minValue, int maxValue, bool isReadKey)
+        {
+            int result = minValue;
+            bool isDone = false;
+            int numberOfAttempts = 0;
+            string userInput;
+            int userInputInt = 0;
+
+            do
+            {
+                if (numberOfAttempts > 0)
+                {
+                    Console.WriteLine("");
+                    Console.WriteLine("Invalid input format. Please try again");
+                    Console.WriteLine("");
+                }
+
+                Console.WriteLine(message + " ");
+
+                if (isReadKey)
+                {
+                    userInput = Console.ReadKey().KeyChar.ToString();
+                }
+                else
+                {
+                    userInput = Console.ReadLine();
+                }
+
+
+                bool isInteger = int.TryParse(userInput, out userInputInt);
+                if (isInteger && userInputInt >= minValue && userInputInt <= maxValue)
+                {
+                    result = userInputInt;
+                    isDone = true;
+                }
+
+                numberOfAttempts++;
+            }
+            while (!isDone);
+
+            return result;
+        }
+
+        /// <summary>
+        /// Prompt user for an interger within a range.  Determine whether you want the input to be a ReadKey or ReadLine.
+        /// </summary>
+        /// <param name="message">Prompt Message for user</param>
+        /// <param name="minValue">Smallest accepted value for user input</param>
+        /// <param name="maxValue">Largest accepted value for user input</param>
+        /// <param name="isReadKey">True for a Console.Readkey (i.e. values are les than 10) False for Console.Readline</param>
+        /// <returns>Returns a string that is either the int value as a string or the acceptable string/char</returns>
+        public static double GetDoubleInRange(string message, double minValue, double maxValue)
+        {
+            double result = minValue-1;
+            bool isDone = false;
+            int numberOfAttempts = 0;
+            string userInput;
+            double userInputDbl = minValue-1;
+
+            do
+            {
+                if (numberOfAttempts > 0)
+                {
+                    Console.WriteLine("");
+                    Console.WriteLine("Invalid input format. Please try again");
+                    Console.WriteLine("");
+                }
+
+                Console.WriteLine(message + " ");
+
+                userInput = Console.ReadLine();
+
+                bool isDouble = double.TryParse(userInput, out userInputDbl);
+                if (isDouble && userInputDbl >= minValue && userInputDbl <= maxValue)
+                {
+                    result = userInputDbl;
+                    isDone = true;
+                }
+
+                numberOfAttempts++;
+            }
+            while (!isDone);
+
+            return result;
+        }
+
+
+        /// <summary>
         /// Prompt user for an interger included in a list of integers or a quit character.  Determine whether you want the input to be a ReadKey or ReadLine.
         /// </summary>
         /// <param name="message">Prompt Message for user</param>
@@ -263,7 +358,7 @@ namespace InitiativeTrackerCLI
                 Console.Write($"{message} <{trueWord}/{falseWord}>");
                 Console.WriteLine();
                 userInput = Console.ReadLine();
-                if( userInput == trueWord || userInput == falseWord)
+                if( userInput.ToLower() == trueWord.ToLower() || userInput.ToLower() == falseWord.ToLower())
                 {
                     goodInput = true;
                 }
@@ -280,6 +375,137 @@ namespace InitiativeTrackerCLI
             return boolValue;
         }
 
+        /// <summary>
+        /// Request string input from user for a value "x"
+        /// </summary>
+        /// <param name="message">Message Prompt</param>
+        /// <param name="x">Acceptable String Value</param>
+        /// <returns></returns>
+        public static string GetX(string message, string x)
+        {
+            string userInput = String.Empty;
+            int numberOfAttempts = 0;
+            bool goodInput = false;
+
+            while (!goodInput)
+            {
+                if (numberOfAttempts > 0)
+                {
+                    Console.SetCursorPosition(0, Console.CursorTop - 2);
+                    ClearCurrentConsoleLine();
+                    Console.WriteLine($"Invalid input. Please choose {x} to continue");
+                }
+
+                Console.Write(message);
+                Console.WriteLine();
+                userInput = Console.ReadKey().KeyChar.ToString();
+                if (userInput.ToLower() == x.ToLower())
+                {
+                    goodInput = true;
+                }
+
+                numberOfAttempts++;
+            }
+
+            return userInput;
+        }
+
+        /// <summary>
+        /// Request string input from user for a value "x" or "y"
+        /// </summary>
+        /// <param name="message">Message Prompt</param>
+        /// <param name="x">Acceptable String Value 1</param>
+        /// <param name="y">Acceptable String Value 2</param>
+        /// <returns></returns>
+        public static string GetXorY(string message, string x, string y)
+        {
+            string userInput = String.Empty;
+            int numberOfAttempts = 0;
+            bool goodInput = false;
+
+            while (!goodInput)
+            {
+                if (numberOfAttempts > 0)
+                {
+                    Console.WriteLine($"Invalid input. Please Choose {x} or {y}");
+                }
+
+                Console.Write($"{message} <{x}/{y}>");
+                Console.WriteLine();
+                userInput = Console.ReadKey().ToString();
+                if (userInput.ToLower() == x.ToLower() || userInput.ToLower() == y.ToLower())
+                {
+                    goodInput = true;
+                }
+
+                numberOfAttempts++;
+            }
+            
+            return userInput;
+        }
+
+        /// <summary>
+        /// Request string input from user for a value "x", "y", or "z"
+        /// </summary>
+        /// <param name="message">Message Prompt</param>
+        /// <param name="x">Acceptable String Value 1</param>
+        /// <param name="y">Acceptable String Value 2</param>
+        /// <param name="y">Acceptable String Value 3</param
+        public static string GetXorYorZ(string message, string x, string y, string z, bool isReadKey)
+        {
+            string userInput = String.Empty;
+            int numberOfAttempts = 0;
+            bool goodInput = false;
+
+            while (!goodInput)
+            {
+                if (numberOfAttempts > 0)
+                {
+                    Console.WriteLine($"Invalid input. Please Choose {x},{y}, or {z}");
+                }
+
+                Console.Write($"{message} <{x}/{y}/{z}>");
+                Console.WriteLine();
+                if (isReadKey)
+                {
+                    userInput = Console.ReadKey().ToString();
+                }
+                else
+                {
+                    userInput = Console.ReadLine();
+                }
+
+                if (userInput.ToLower() == x.ToLower() || userInput.ToLower() == y.ToLower() || userInput.ToLower() == z.ToLower())
+                {
+                    goodInput = true;
+                }
+
+                numberOfAttempts++;
+            }
+
+            return userInput;
+        }
+
+        /// <summary>
+        /// Have console write text in center of console window.  Credit to Will K.!
+        /// </summary>
+        /// <param name="message">Text To Display</param>
+        public static void CenteredWriteline(string message)
+        {
+            Console.SetCursorPosition((Console.WindowWidth - message.Length) / 2, Console.CursorTop);
+            Console.WriteLine(message);
+        }
+
+        /// <summary>
+        /// Clear the current line of the console
+        /// </summary>
+        public static void ClearCurrentConsoleLine()
+        {
+            int currentLineCursor = Console.CursorTop;
+            Console.SetCursorPosition(0, Console.CursorTop);
+            Console.Write(new string(' ', Console.WindowWidth));
+            Console.SetCursorPosition(0, currentLineCursor);
+        }
 
     }
 }
