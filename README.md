@@ -15,7 +15,7 @@ Rebuild and redifine classes
 Add DAL layer and SQL database to save characters
 Add DAL Methods
     1. PCs
-        a. Create Character
+        a. Create Character DONE!
         b. Get Characters by player id DONE!
         c. Get Character by character id (optional)
     2. Enemies

@@ -75,6 +75,9 @@ namespace InitiativeTrackerCLI
             }
         }
 
+        /// <summary>
+        /// Main Menu for editing party
+        /// </summary>
         public void PartyEditor()
         {
             bool isGood = false;
@@ -114,6 +117,9 @@ namespace InitiativeTrackerCLI
             }
         }
 
+        /// <summary>
+        /// Look through list of players 
+        /// </summary>
         public void AddPcToParty()
         {
             bool isGood = false;
@@ -149,6 +155,10 @@ namespace InitiativeTrackerCLI
             }
         }
 
+       /// <summary>
+       /// Choose PC from player's list of characters and add to party
+       /// </summary>
+       /// <param name="playerID">Player_ID primary key</param>
         public void ChoosePC(int playerID)
         {
             bool isGood = false;
@@ -201,6 +211,9 @@ namespace InitiativeTrackerCLI
             }
         }
 
+        /// <summary>
+        /// Add an NPC to the party (i.e. da good guyz)
+        /// </summary>
         public void AddNpcToParty()
         {
             bool isGood = false;
@@ -221,6 +234,9 @@ namespace InitiativeTrackerCLI
             }
         }
 
+        /// <summary>
+        /// Remove a character from the party
+        /// </summary>
         public void RemoveFromParty()
         {
             bool isGood = false;
@@ -238,6 +254,9 @@ namespace InitiativeTrackerCLI
             }
         }
 
+        /// <summary>
+        /// Create players or characters and add them to the database
+        /// </summary>
         public void DataBaseEditor()
         {
             bool isGood = false;
@@ -262,6 +281,10 @@ namespace InitiativeTrackerCLI
                 else if (input == "1")
                 {
                     AddPlayerMenu();
+                }
+                else if (input == "2")
+                {
+                    AddPlayerCharacterSelectPlayer();
                 }
             }
         }
@@ -307,11 +330,96 @@ namespace InitiativeTrackerCLI
             }
         }
 
-        public void AddPlayerCharacter()
+        /// <summary>
+        /// Choose Player for PC to add to Database
+        /// </summary>
+        public void AddPlayerCharacterSelectPlayer()
         {
+            bool isGood = false;
 
+            while (!isGood)
+            {
+                Console.Clear();
+
+                PrintHeader("Add Player Character - Select Player");
+
+                Console.WriteLine();
+                Console.WriteLine("SELECT YOUR PLAYER NAME");
+                Console.WriteLine();
+
+                List<Player> players = _playerDAL.GetAllPlayers();
+                List<int> playerIds = new List<int>();
+                foreach (Player player in players)
+                {
+                    Console.WriteLine($"{player.PlayerID}) {player.Name}");
+                    playerIds.Add(player.PlayerID);
+                }
+                Console.WriteLine();
+                string input = CLIHelper.GetIntInListOrQ("enter an id:", playerIds, "q", false);
+                if (input == "Q" || input == "q")
+                {
+                    isGood = true;
+                }
+                else
+                {
+                    GetNewPcInfoAndAddToDB(Convert.ToInt32(input));
+                    isGood = true;
+                }
+            }
         }
 
+        /// <summary>
+        /// Get PC info from player inputs and add character to database
+        /// </summary>
+        /// <param name="playerId">Player ID to assign character to</param>
+        public void GetNewPcInfoAndAddToDB(int playerId)
+        {
+            bool isGood = false;
+
+            while (!isGood)
+            {
+                Console.Clear();
+
+                PrintHeader("Database Editor - Add Player");
+                Console.WriteLine();
+
+                string name = CLIHelper.GetString("ENTER A NAME:");
+                string race = CLIHelper.GetString("ENTER CHARACTER RACE:");
+                string typeClass = CLIHelper.GetString("ENTER CLASS:");
+                int level = CLIHelper.GetIntInRange("ENTER LEVEL:",1,20,false);
+                int initiativeBonus = CLIHelper.GetIntInRange("ENTER INITIATIVE BONUS (DEX modifier + eqpt bonuses):",1,20,false);
+                int AC = CLIHelper.GetInteger("ENTER ARMOR CLASS:");
+                string description = CLIHelper.GetString("ENTER CHARACTER DESCRIPTION:");
+
+                bool noExceptions = true;
+                try
+                {
+                    _pcDAL.AddPC(playerId, name, typeClass, level, initiativeBonus, AC, race, description);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("ERROR:" + e.Message);
+                    noExceptions = false;
+                    string exInput = CLIHelper.GetXorY("Sorry something's gone wrong, press Q to quit or R to retry", "q", "r");
+                    if (exInput.ToLower() == "q")
+                    {
+                        isGood = true;
+                    }
+                }
+
+                if (noExceptions)
+                {
+                    Console.WriteLine("Success! Press any key to return to the DataBase Editor Main Menu");
+                    Console.ReadKey();
+                    isGood = true;
+                }
+
+            }
+        }
+
+        /// <summary>
+        /// First Step of Combat: Add Enemies! Maybe Move this to Main Menu....
+        /// </summary>
         public void ChooseEnemiesMainMenu()
         {
             bool isGood = false;
@@ -579,6 +687,9 @@ namespace InitiativeTrackerCLI
             }
         }
 
+        /// <summary>
+        /// Final Screen! Shows the turn order based on initiative rolls.
+        /// </summary>
         public void ShowCombatOrder()
         {
             bool isGood = false;
@@ -617,7 +728,6 @@ namespace InitiativeTrackerCLI
             int result = 20;
             Console.SetCursorPosition(0, Console.CursorTop - 1);
             CLIHelper.ClearCurrentConsoleLine();
-            Console.WriteLine();
             bool isDone = false;
             while (!isDone)
             {

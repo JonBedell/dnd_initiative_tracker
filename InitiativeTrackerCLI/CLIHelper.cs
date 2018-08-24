@@ -63,7 +63,7 @@ namespace InitiativeTrackerCLI
             {
                 if (numberOfAttempts > 0)
                 {
-                    Console.WriteLine("Invalid input format. Please try again");
+                    Console.Write("Invalid input format. Please try again");
                 }
 
                 Console.Write(message + " ");

@@ -108,7 +108,18 @@ namespace InitiativeTracker.DALs
             return result;
         }
 
-        public void AddPC(int playerID, string name, string typeClass, int level, int initiativeBonus, int AC, string description)
+        /// <summary>
+        /// Add PC to database, WILL NEED PLAYER ID
+        /// </summary>
+        /// <param name="playerID">Primary key for character's player in database</param>
+        /// <param name="name">Character Name</param>
+        /// <param name="typeClass">Character Class</param>
+        /// <param name="level">Char lvl</param>
+        /// <param name="initiativeBonus">Dex Modifier + any other equipment modifiers</param>
+        /// <param name="AC">Armor Class</param>
+        /// <param name="race">Race</param>
+        /// <param name="description">Short Character summary</param>
+        public void AddPC(int playerID, string name, string typeClass, int level, int initiativeBonus, int AC, string race, string description)
         {
 
             //Connect to Database
@@ -117,13 +128,20 @@ namespace InitiativeTracker.DALs
                 conn.Open();
 
                 //Create sql statement
-                string sqlReservation = "INSERT INTO pcs (name) " +
-                                        $"VALUES(@name)";
+                string sqlReservation = "INSERT INTO pc (name, player_id, class, level, initiative_bonus, AC, race, description) " +
+                                        $"VALUES(@name, @player_id, @class, @level, @initiative_bonus, @AC, @race, @description)";
 
                 SqlCommand cmd = new SqlCommand();
                 cmd.CommandText = sqlReservation;
                 cmd.Connection = conn;
                 cmd.Parameters.AddWithValue("@name", name);
+                cmd.Parameters.AddWithValue("@player_id", playerID);
+                cmd.Parameters.AddWithValue("@class", typeClass);
+                cmd.Parameters.AddWithValue("@level", level);
+                cmd.Parameters.AddWithValue("@initiative_bonus", initiativeBonus);
+                cmd.Parameters.AddWithValue("@AC", AC);
+                cmd.Parameters.AddWithValue("@race", race);
+                cmd.Parameters.AddWithValue("@description", description);
 
                 //Send command to database
                 int rowsAffected = cmd.ExecuteNonQuery();
